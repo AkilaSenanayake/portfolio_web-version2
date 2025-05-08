@@ -164,6 +164,116 @@
           font-size: 18px !important;
         }
       }
+
+      /* Mobile Sidebar Styles - Only for mobile view */
+      @media (max-width: 767px) {
+        .mobile-nav {
+          position: fixed;
+          top: 0;
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          background: #F0F0F0;
+          box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+          transition: left 0.3s ease;
+          padding: 20px;
+        }
+
+        .mobile-nav.active {
+          left: 0;
+        }
+
+        .mobile-nav-header {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-bottom: 30px;
+          padding-bottom: 15px;
+        }
+
+        .mobile-nav-logo {
+          display: none;
+        }
+
+        .mobile-nav-close {
+          background: none;
+          border: none;
+          color: #1200ff;
+          font-size: 28px;
+          cursor: pointer;
+          padding: 5px;
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .mobile-nav-link {
+          color: #000;
+          text-decoration: none;
+          font-size: 1.1rem;
+          padding: 12px 15px;
+          border-radius: 10px;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .mobile-nav-link:hover {
+          background: #b3c6ff;
+          color: #1200ff;
+          transform: translateX(5px);
+        }
+
+        .mobile-nav-toggle {
+          display: block;
+          position: fixed;
+          top: 60px;
+          right: 20px;
+          z-index: 999;
+          background: none;
+          border: none;
+          padding: 12px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          width: 45px;
+          height: 45px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .mobile-nav-toggle span {
+          display: block;
+          width: 25px;
+          height: 2px;
+          background-color: #1200ff;
+          transition: all 0.2s ease;
+        }
+
+        .mobile-nav-toggle:hover span {
+          background-color: #0000ff;
+        }
+
+        /* Hide desktop header on mobile */
+        /* .u-header {
+          display: none;
+        } */
+      }
+
+      /* Hide mobile nav on desktop */
+      @media (min-width: 768px) {
+        .mobile-nav,
+        .mobile-nav-toggle {
+          display: none;
+        }
+      }
     </style>
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
@@ -415,4 +525,57 @@ var sc_security="d34c140e"; </script>
         <br>
 
       </div></footer>
+
+    <!-- Add Mobile Navigation HTML -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close">&times;</button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="#about-section" class="mobile-nav-link">About</a>
+        <a href="#sec-c7f0" class="mobile-nav-link">Blogs</a>
+        <a href="https://www.linkedin.com/in/akila-senanayake/details/projects/" target="_blank" class="mobile-nav-link">Projects</a>
+        <a href="#contact-section" class="mobile-nav-link">Contact</a>
+        <a href="https://www.linkedin.com/in/akila-senanayake/" target="_blank" class="mobile-nav-link">Connect In</a>
+      </div>
+    </nav>
+
+    <button class="mobile-nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <script>
+      // Mobile Navigation Toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.querySelector('.mobile-nav-toggle');
+        const nav = document.querySelector('.mobile-nav');
+        const closeButton = document.querySelector('.mobile-nav-close');
+        const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuButton.addEventListener('click', function() {
+          nav.classList.add('active');
+        });
+
+        closeButton.addEventListener('click', function() {
+          nav.classList.remove('active');
+        });
+
+        // Close nav when clicking a link
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            nav.classList.remove('active');
+          });
+        });
+
+        // Close nav when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
+            nav.classList.remove('active');
+          }
+        });
+      });
+    </script>
 </body></html>
