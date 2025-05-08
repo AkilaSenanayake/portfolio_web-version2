@@ -1,5 +1,5 @@
 <!DOCTYPE html><html style="font-size: 16px;" lang="en"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <meta name="keywords" content="akila senanayake, akila, senanayake, portfolio, web developer">
     <meta name="description" content="Personal portfolio website of Akila Senanayake">
@@ -12,9 +12,56 @@
         --sidebar-width: 280px;
         --header-height: 70px;
       }
-      /* Sidebar Styles ... (unchanged) ... */
-      /* ... other existing styles ... */
-      /* Remove all .mobile-message and overlay styles */
+      
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .u-body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .u-sheet {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (max-width: 767px) {
+        .u-sheet {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        
+        .u-layout-wrap {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        
+        .u-layout-cell {
+          min-width: 100% !important;
+          width: 100% !important;
+        }
+      }
+
+      /* Contact section mobile styles */
+      @media (max-width: 767px) {
+        #contact-section > div {
+          margin-left: 15px !important;
+          margin-right: 15px !important;
+          gap: 40px !important;
+        }
+      }
     </style>
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
