@@ -7,54 +7,14 @@
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
     <link rel="stylesheet" href="css/home.css" media="screen">
     <style>
-      /* Mobile Message Overlay */
-      .mobile-message {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #F0F0F0;
-        z-index: 99999;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
+      /* Mobile Responsive Styles */
+      :root {
+        --sidebar-width: 280px;
+        --header-height: 70px;
       }
-
-      .mobile-message img {
-        width: 150px;
-        height: auto;
-        margin-bottom: 30px;
-      }
-
-      .mobile-message p {
-        font-size: 12px;
-        color: #1200ff;
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      @media screen and (max-width: 768px) {
-        .mobile-message {
-          display: flex;
-        }
-        body > *:not(.mobile-message) {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-        }
-        html, body {
-          overflow: hidden !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          height: 100% !important;
-          width: 100% !important;
-        }
-      }
+      /* Sidebar Styles ... (unchanged) ... */
+      /* ... other existing styles ... */
+      /* Remove all .mobile-message and overlay styles */
     </style>
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
@@ -101,11 +61,7 @@
     }
     </script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body class="u-body u-overlap u-xl-mode" data-lang="en" style="background-color:#F0F0F0;">
-    <!-- Mobile Message Overlay -->
-    <div class="mobile-message">
-      <img src="images/logo2.png" alt="Logo">
-      <p>This web page only visible for desktop yet.</p>
-    </div>
+    <!-- Mobile Message Overlay removed -->
     <header class="u-align-left u-clearfix u-header" id="sec-c103"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="index.html" class="u-align-center-sm u-align-center-xs u-image u-logo u-image-1" title="HOME">
           <img src="images/logo2.png" class="u-logo-image u-logo-image-1" data-image-width="100">
